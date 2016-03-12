@@ -1,11 +1,12 @@
 #!/bin/bash
 set -e
+BASE=$(dirname $0)
 
 APP_ID="fr.free.bashwifi"
 FREEBOX_ADDRESS="http://mafreebox.freebox.fr"
 
 function check_authorization {
-  source .data
+  source ${BASE}/.data
 
   local AUTHORIZATION_CHECK=`curl -s ${FREEBOX_ADDRESS}/api/v1/login/authorize/${TRACK_ID}`
 
@@ -37,9 +38,9 @@ if [ ! -f .data ]; then
   TRACK_ID=`echo -n ${AUTORIZE_RESPONSE} | sed 's/.*track_id":\([0-9]*\).*/\1/g'`
   echo 'Accept this application on the Freebox menu'
   echo "Dont forget to add the settings rights in the administration section"
-  echo "#!/bin/bash" > .data
-  echo "APP_TOKEN=\"${APP_TOKEN}\"" >> .data
-  echo "TRACK_ID=\"${TRACK_ID}\"" >> .data
+  echo "#!/bin/bash" > ${BASE}/.data
+  echo "APP_TOKEN=\"${APP_TOKEN}\"" >> ${BASE}/.data
+  echo "TRACK_ID=\"${TRACK_ID}\"" >> ${BASE}/.data
   exit 0
 fi
 
