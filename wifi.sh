@@ -32,7 +32,7 @@ function expect_success() {
 WIFI_STATUS=${1}
 
 # REGISTER APPLICATION
-if [ ! -f .data ]; then
+if [ ! -f ${BASE}/.data ]; then
   AUTORIZE_RESPONSE=`curl -s --header "Content-type: application/json" --header "charset: utf-8" --header "Accept: text/plain" -X POST -d '{ "app_id": "'"${APP_ID}"'", "app_name": "bash_wifi_control", "app_version": 1.0, "device_name": "Bash Wifi Control" }' ${FREEBOX_ADDRESS}/api/v1/login/authorize/`
   APP_TOKEN=`echo -n ${AUTORIZE_RESPONSE} | sed 's/.*app_token":"\([^"]*\).*/\1/g' | sed 's/\\\//g'`
   TRACK_ID=`echo -n ${AUTORIZE_RESPONSE} | sed 's/.*track_id":\([0-9]*\).*/\1/g'`
