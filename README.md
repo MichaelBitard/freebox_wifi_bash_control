@@ -1,5 +1,8 @@
-# freebox_wifi_bash_control
-Control your wifi via bash
+# Freebox Wi-Fi bash control
+
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://tldrlegal.com/license/mit-license#summary)
+
+Control your Wi-Fi via bash
 
 ## Usage
 
