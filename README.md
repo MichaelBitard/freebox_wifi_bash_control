@@ -4,6 +4,13 @@
 
 Control your Wi-Fi via bash
 
+## Prerequisites
+
+You will need:
+* A freebox revolution, obviously
+* cURL
+* openssl
+
 ## Usage
 
 * Launch ./wifi.sh
